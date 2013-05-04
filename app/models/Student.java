@@ -12,7 +12,7 @@ import play.db.jpa.Model;
 @Entity
 public class Student extends Model
 {
-	//indeksot ke bide unique, mozebi ke se koristi kako id
+	//format: xxxxyy, xxxx-broj na indeks, yy-poslednite dve cifri od godinata
 	@Unique
 	public String indeks; 
 	//najverojatno kako username ke se koristi indeksot
@@ -23,4 +23,9 @@ public class Student extends Model
 	//grupata
 	@ManyToMany(mappedBy="studenti")
 	public List<Grupa> grupi;
+
+	@Override
+	public String toString() {
+		return "Student [indeks=" + indeks + ", imePrezime=" + imePrezime + "]";
+	}
 }

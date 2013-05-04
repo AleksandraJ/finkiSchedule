@@ -12,10 +12,10 @@ import play.db.jpa.Model;
 @Entity
 public class Prostorija extends Model
 {
+	//kandidat za PK, format: unique(grad-zgrada-brojka)
 	//@Id
-	//@Unique
-	//kandidat za PK, unique(grad-zgrada-brojka)
-	public String ID;
+	@Unique
+	public String IDS;
 	public String ime;
 	public int longitude;
 	public int latitude;
@@ -32,7 +32,7 @@ public class Prostorija extends Model
 	public Prostorija(String iD, String ime, int longitude, int latitude,
 			String zgrada, String kat, int x, int y, int width, int height) {
 		super();
-		ID = iD;
+		IDS = iD;
 		this.ime = ime;
 		this.longitude = longitude;
 		this.latitude = latitude;
@@ -42,5 +42,11 @@ public class Prostorija extends Model
 		this.y = y;
 		this.width = width;
 		this.height = height;
+	}
+
+	@Override
+	public String toString() {
+		return "Prostorija [ID=" + IDS + ", ime=" + ime + ", zgrada=" + zgrada
+				+ ", kat=" + kat + "]";
 	}
 }

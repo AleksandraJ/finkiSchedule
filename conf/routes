@@ -5,6 +5,9 @@
 # Home page
 GET     /                                       Application.index
 
+# Prostorii jSON web service
+GET		/services/prostorii/{id}				Services.prostorii(id)
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

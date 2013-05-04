@@ -13,8 +13,8 @@ import play.db.jpa.Model;
 @Entity
 public class Nastan extends Model
 {
-	public Date vremeOd;
-	public Date vremeDo;
+	public String vremeOd;
+	public String vremeDo;
 	public String datum;
 	public String opis;
 	
@@ -35,12 +35,20 @@ public class Nastan extends Model
 	
 	public Nastan() {}
 
-	public Nastan(Date vremeOd, Date vremeDo, String datum, String opis) {
+	public Nastan(String vremeOd, String vremeDo, String datum, String opis) {
 		super();
 		this.vremeOd = vremeOd;
 		this.vremeDo = vremeDo;
 		this.datum = datum;
 		this.opis = opis;
+	}
+
+	@Override
+	public String toString() {
+		return "Nastan [vremeOd=" + vremeOd + ", vremeDo=" + vremeDo
+				+ ", datum=" + datum + ", opis=" + opis + ", prostorija="
+				+ prostorija + ", grupa=" + grupa + ", odgovoren=" + odgovoren
+				+ ", osnoven=" + osnoven + ", izvedeni=" + izvedeni + "]";
 	}
 	
 	
