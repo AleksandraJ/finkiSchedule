@@ -4,9 +4,17 @@
 
 # Home page
 GET     /                                       Application.index
+# Admin Grupa
+GET		/adminGrupa								Application.adminGrupa
 
 # Prostorii jSON web service
 GET		/services/prostorii/{id}				Services.prostorii(id)
+
+# Grupi jSON web service
+GET		/services/grupi/{id}					Services.grupi(id)
+
+# Upload a csv file
+POST    /upload                                 Application.upload
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

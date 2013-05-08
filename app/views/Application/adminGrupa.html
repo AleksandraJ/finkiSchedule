@@ -1,0 +1,60 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<div>
+	<input type="text" id="searchGrupa"/><br/>
+	<select id="grupa" size="10">
+       	<option value="id-to">ime_grupa</option>
+	</select>
+</div>
+<div>
+	<input type="text" id="searchMembers"/><br/>
+	<select id="members" size="10">
+       	<option value="id-to">index-student</option>
+	</select>
+</div>
+<div>
+	<input type="text" id="searchNon-Members"/><br/>
+	<select id="non-members" size="10">
+       	<option value="id-to">index-student</option>
+	</select>
+</div>
+<div>
+	<input type="text" id="imeGrupa"/><br/>
+	<select id="predmet" size="10">
+       	<option value="id-to">id-predmet</option>
+	</select>
+</div>
+<div>-----------------------------------------------------------------</div>
+<div>
+<script type="text/javascript">
+<!--
+	function check_file(){
+	    str=document.getElementById('myfile').value;
+		if(str === "")
+		{
+		    alert("Прво одберете датотека!");			
+		}else
+		{
+			//check the extension again
+			var ext = str.split('.').pop().toLowerCase();
+			if(ext !== "txt" && ext !== "csv")
+			{
+				alert("Датотеката мора да биде CSV документ (.txt .csv)");
+				document.getElementById('myfile').value = "";
+			}else
+			{
+				//submit the form
+				document.getElementById("frmUpload").submit();				
+			}
+		}
+	}
+//-->
+</script>
+
+	<h1>Add with CVS file</h1>
+	<form action="@{Application.uploadFile()}" method="POST" enctype="multipart/form-data" id="frmUpload">
+    <input type="file" accept=".txt, .csv" id="myfile" name="myfile" /><br/>
+    <input type="button" value="Send it..." onclick="check_file()"/>
+</form>
+</div>
